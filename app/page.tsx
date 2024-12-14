@@ -1,95 +1,229 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Grid2,
+  IconButton,
+  Paper,
+  Typography,
+} from "@mui/material";
+import Header from "./components/Header";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import PaymentIcon from "@mui/icons-material/Payment";
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Container>
+      <Header />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <Typography
+        variant="h2"
+        fontSize={24}
+        fontWeight="500"
+        sx={{ mt: "30px", mb: "4px" }}
+      >
+        Good Morning, Selena
+      </Typography>
+      <Typography fontSize="14px" color="#777">
+        This is your finance report
+      </Typography>
+
+      <Grid2 container columnSpacing={2} sx={{ my: "30px" }}>
+        {/* my balance */}
+        <Grid2 size={4}>
+          <Paper
+            sx={{
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: "none",
+              border: "1px solid #ddd",
+              maxWidth: 400,
+              margin: "auto",
+              height: "100%",
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+              My balance
+            </Typography>
+
+            <Box display="flex" alignItems="center" mb={2}>
+              <Typography variant="h4" fontWeight="bold" mr={1}>
+                $83,172.64
+              </Typography>
+              <Typography
+                fontSize="12px"
+                sx={{ color: "green", fontWeight: "bold", marginRight: 1 }}
+              >
+                +6,7%
+              </Typography>
+              <Typography fontSize="10px" color="text.secondary">
+                compare to last month
+              </Typography>
+            </Box>
+
+            <Box display="flex" alignItems="center" mb={2}>
+              <Typography
+                variant="body1"
+                sx={{ letterSpacing: "2px", flex: 1 }}
+              >
+                6549 7329 9821 2472
+              </Typography>
+              <IconButton
+                size="small"
+                sx={{
+                  backgroundColor: "#f0f0f0",
+                  borderRadius: 1,
+                  marginLeft: 1,
+                }}
+              >
+                <ContentCopyIcon fontSize="small" />
+              </IconButton>
+            </Box>
+
+            <Box display="flex" gap={2}>
+              <Button
+                variant="contained"
+                color="success"
+                fullWidth
+                sx={{ textTransform: "none" }}
+              >
+                Send money
+              </Button>
+              <Button
+                variant="outlined"
+                color="success"
+                fullWidth
+                sx={{ textTransform: "none" }}
+              >
+                Request money
+              </Button>
+            </Box>
+          </Paper>
+        </Grid2>
+        {/* monthly income */}
+        <Grid2 size={2}>
+          <Paper
+            sx={{
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: "none",
+              border: "1px solid #ddd",
+              maxWidth: 300,
+              margin: "auto",
+              height: "100%",
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <Avatar
+              sx={{
+                backgroundColor: "#e0f2f1",
+                color: "#2e7d32",
+                width: 40,
+                height: 40,
+                marginBottom: 2,
+              }}
+            >
+              <PaymentIcon />
+            </Avatar>
+
+            <Typography
+              variant="subtitle2"
+              color="text.secondary"
+              marginBottom={2}
+            >
+              Monthly income
+            </Typography>
+
+            <Typography variant="h5" fontWeight="bold" mb={1}>
+              $16,281.48
+            </Typography>
+
+            <Box display="flex" alignItems="center">
+              <Typography
+                fontSize="12px"
+                sx={{ color: "green", fontWeight: "bold", marginRight: 1 }}
+              >
+                +9,8%
+              </Typography>
+              <Typography fontSize="10px" color="text.secondary">
+                compare to last month
+              </Typography>
+            </Box>
+          </Paper>
+        </Grid2>
+        {/* monthly expenses */}
+        <Grid2 size={2}>
+          <Paper
+            sx={{
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: "none",
+              border: "1px solid #ddd",
+              maxWidth: 300,
+              margin: "auto",
+              height: "100%",
+            }}
+          >
+            <Avatar
+              sx={{
+                backgroundColor: "#fdecea",
+                color: "#d32f2f",
+                width: 40,
+                height: 40,
+                marginBottom: 2,
+              }}
+            >
+              <PaymentIcon />
+            </Avatar>
+
+            <Typography
+              variant="subtitle2"
+              color="text.secondary"
+              marginBottom={2}
+            >
+              Monthly expenses
+            </Typography>
+
+            <Typography variant="h5" fontWeight="bold" mb={1}>
+              $6,638.48
+            </Typography>
+
+            <Box display="flex" alignItems="center">
+              <Typography
+                fontSize="12px"
+                sx={{ color: "green", fontWeight: "bold", marginRight: 1 }}
+              >
+                -8,6%
+              </Typography>
+              <Typography fontSize="10px" color="text.secondary">
+                compare to last month
+              </Typography>
+            </Box>
+          </Paper>
+        </Grid2>
+        <Grid2 size={4}>
+          <Paper
+            sx={{
+              padding: 2,
+              borderRadius: 2,
+              boxShadow: "none",
+              border: "1px solid #ddd",
+              margin: "auto",
+              height: "100%",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              color="text.secondary"
+              marginBottom={2}
+            >
+              All Expenses
+            </Typography>
+          </Paper>
+        </Grid2>
+      </Grid2>
+    </Container>
   );
-}
+};
+
+export default Page;
